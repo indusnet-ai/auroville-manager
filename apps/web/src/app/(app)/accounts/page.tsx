@@ -17,8 +17,8 @@ export default async function AccountsPage() {
     .from('expenses')
     .select('*, cottages(name)')
 
-  const totalIncome = bookings?.reduce((sum, b) => sum + Number(b.rate), 0) || 0
-  const totalExpenses = expenses?.reduce((sum, e) => sum + Number(e.amount), 0) || 0
+  const totalIncome = bookings?.reduce((sum, b) => sum + Number((b as any).rate), 0) || 0
+  const totalExpenses = expenses?.reduce((sum, e) => sum + Number((e as any).amount), 0) || 0
   const netProfit = totalIncome - totalExpenses
 
   // Combine into a single ledger array
