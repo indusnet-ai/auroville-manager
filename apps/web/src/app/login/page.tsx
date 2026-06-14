@@ -7,7 +7,7 @@ export default async function LoginPage(props: { searchParams: Promise<{ message
   const searchParams = await props.searchParams
   return (
     <div className="flex-1 flex flex-col w-full px-8 sm:max-w-md justify-center gap-2 mx-auto min-h-screen">
-      <form className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
+      <form action={login} className="animate-in flex-1 flex flex-col w-full justify-center gap-2 text-foreground">
         <h1 className="text-3xl font-bold text-center mb-8 text-primary">Auroville Manager</h1>
         
         <Label className="text-md" htmlFor="email">
@@ -31,7 +31,7 @@ export default async function LoginPage(props: { searchParams: Promise<{ message
           required
         />
         
-        <Button formAction={login} className="mb-2">
+        <Button type="submit" className="mb-2">
           Sign In
         </Button>
         <Button formAction={signup} variant="outline" className="mb-2">
@@ -39,7 +39,7 @@ export default async function LoginPage(props: { searchParams: Promise<{ message
         </Button>
 
         {searchParams?.message && (
-          <p className="mt-4 p-4 bg-foreground/10 text-foreground text-center rounded-md">
+          <p className="mt-4 p-4 bg-red-100 text-red-600 font-medium text-center rounded-md border border-red-200">
             {searchParams.message}
           </p>
         )}
